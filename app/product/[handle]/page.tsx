@@ -16,9 +16,9 @@ export const runtime = 'edge';
 export async function generateMetadata({
   params
 }: {
-  params: { handle: string[] };
+  params: { handle: string };
 }): Promise<Metadata> {
-  const [handle] = params.handle;
+  const handle = params.handle;
   const param = decodeURIComponent(handle as string);
   const product = await getProduct(param as string);
 
@@ -53,8 +53,8 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProductPage({ params }: { params: { handle: string[] } }) {
-  const [handle] = params.handle;
+export default async function ProductPage({ params }: { params: { handle: string } }) {
+  const handle = params.handle;
   const param = decodeURIComponent(handle as string);
   const product = await getProduct(param);
 
