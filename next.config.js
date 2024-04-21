@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  i18n: {
+    locales: ['en-US', 'uk-UA'],
+    defaultLocale: 'uk-UA'
+  },
   eslint: {
     // Disabling on production builds because we're running checks on PRs via GitHub Actions.
     ignoreDuringBuilds: true
