@@ -18,7 +18,9 @@ export async function generateMetadata({
 }: {
   params: { handle: string };
 }): Promise<Metadata> {
-  const product = await getProduct(params.handle);
+  const handle = params.handle;
+  const param = decodeURIComponent(handle as string);
+  const product = await getProduct(param as string);
 
   if (!product) return notFound();
 
@@ -52,7 +54,9 @@ export async function generateMetadata({
 }
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProduct(params.handle);
+  const handle = params.handle;
+  const param = decodeURIComponent(handle as string);
+  const product = await getProduct(param);
 
   if (!product) return notFound();
 
