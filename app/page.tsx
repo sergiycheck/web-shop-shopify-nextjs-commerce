@@ -1,6 +1,7 @@
 import { Carousel } from 'components/carousel';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
+import Collections from 'components/layout/search/collections';
 import { Suspense } from 'react';
 
 export const runtime = 'edge';
@@ -14,14 +15,23 @@ export const metadata = {
 
 export default async function HomePage() {
   return (
-    <>
-      <ThreeItemGrid />
-      <Suspense>
-        <Carousel />
+    <div className="flex h-full w-full flex-col">
+      <div className="flex-1">
+        <div className="mx-auto grid w-full md:grid-cols-6">
+          <div className="px-4 pb-4 md:col-span-1 ">
+            <Collections />
+          </div>
+          <div className="md:col-span-5">
+            <ThreeItemGrid />
+          </div>
+        </div>
+
         <Suspense>
-          <Footer />
+          <Carousel />
         </Suspense>
-      </Suspense>
-    </>
+      </div>
+
+      <Footer />
+    </div>
   );
 }
