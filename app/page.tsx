@@ -7,7 +7,8 @@ import { Suspense } from 'react';
 export const runtime = 'edge';
 
 export const metadata = {
-  description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
+  description:
+    'BaskTech - техніка Miele преміум-класу. Пральні та сушильні машини, посудомийні машини, холодильники, плити, духові шафи, кавоварки, пилососи та інше. Доставка по всій Україні.',
   openGraph: {
     type: 'website'
   }
