@@ -13,7 +13,9 @@ export async function generateMetadata({
 }: {
   params: { collection: string };
 }): Promise<Metadata> {
-  const collection = await getCollection(params.collection);
+  const collectionDecoded = decodeURIComponent(params.collection as string);
+
+  const collection = await getCollection(collectionDecoded);
 
   if (!collection) return notFound();
 
@@ -33,7 +35,10 @@ export default async function CategoryPage({
 }) {
   const { sort } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
-  const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
+
+  const collection = decodeURIComponent(params.collection as string);
+
+  const products = await getCollectionProducts({ collection, sortKey, reverse });
 
   return (
     <section>
