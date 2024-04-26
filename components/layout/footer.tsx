@@ -44,7 +44,9 @@ export default async function Footer() {
             &copy; {copyrightDate} {copyrightName}
             {copyrightName.length && !copyrightName.endsWith('.') ? '.' : ''} All rights reserved.
           </p>
+
           <hr className="mx-4 hidden h-4 w-[1px] border-l border-neutral-400 md:inline-block" />
+
           <p>Designed in Lviv</p>
           <p className="md:ml-auto">
             <a
