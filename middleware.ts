@@ -1,18 +1,20 @@
 import { NextResponse, NextRequest } from 'next/server';
-import { match } from '@formatjs/intl-localematcher';
-import Negotiator from 'negotiator';
+// import { match } from '@formatjs/intl-localematcher';
+// import Negotiator from 'negotiator';
 
 const locales = ['en-US', 'uk-UA', 'uk'];
-const defaultLocale = 'uk-UA';
+// const defaultLocale = 'uk-UA';
 
-function getLocale(request: NextRequest) {
-  const headers = request.headers;
-  const languages = new Negotiator({ headers }).languages();
+// function getLocale(request: NextRequest) {
+//   const headers = request.headers;
+//   const languages = new Negotiator({ headers }).languages();
 
-  // return match(languages, locales, defaultLocale);
-}
+//   // return match(languages, locales, defaultLocale);
+// }
 
 export function middleware(request: NextRequest) {
+  console.log(request.url);
+
   const { pathname } = request.nextUrl;
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -27,10 +29,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)'
-    // Optional: only run on root (/) URL
-    // '/'
-  ]
+  matcher: ['/((?!api|_next/static|_next/images|images|favicon.ico).*)']
 };
