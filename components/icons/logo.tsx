@@ -4,7 +4,7 @@ import Image from 'next/image';
 export default function LogoIcon(props: React.ComponentProps<'img'>) {
   return (
     <Image
-      src="/icons/logo.jpeg"
+      src={'/images/icons/icon.jpeg'}
       alt="BaskTech logo"
       {...props}
       className={clsx(props.className)}
