@@ -34,6 +34,12 @@ export const metadata = {
 export default async function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={GeistSans.variable}>
+      <head>
+        <meta
+          name="google-site-verification"
+          content="k1MmeY2eYM-luSef-_Y3Gt40KqCbnALAaG-bJI4hb4A"
+        />
+      </head>
       <body className="bg-neutral-50 text-black selection:bg-teal-300 dark:bg-neutral-900 dark:text-white dark:selection:bg-pink-500 dark:selection:text-white">
         <Navbar />
         <Suspense>
