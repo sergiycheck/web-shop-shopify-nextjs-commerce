@@ -3,6 +3,7 @@ import { GeistSans } from 'geist/font';
 import { ensureStartsWith } from 'lib/utils';
 import { ReactNode, Suspense } from 'react';
 import './globals.css';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
 const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
@@ -46,6 +47,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <main>{children}</main>
         </Suspense>
       </body>
+      <GoogleAnalytics gaId="AW-16549967110" />
     </html>
   );
 }
